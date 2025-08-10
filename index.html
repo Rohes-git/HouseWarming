@@ -19,7 +19,6 @@
       --white: #ffffff;
     }
 
-    /* Background with elegant golden shimmer */
     body {
       background: linear-gradient(135deg, #fff8e7, #fdf5e6);
       background-size: 300% 300%;
@@ -37,11 +36,10 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Card styling */
     .card {
       display: flex;
       gap: 2rem;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       border-radius: 20px;
       padding: 2rem;
@@ -49,8 +47,10 @@
       max-width: 900px;
       width: 100%;
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      flex-wrap: wrap;
     }
-    .left { flex: 1; }
+
+    .left { flex: 1; min-width: 280px; }
     .logo {
       display: flex;
       align-items: center;
@@ -73,15 +73,11 @@
       font-family: "Libre Baskerville", serif;
       font-size: 1.4rem;
       font-weight: 700;
-      color: var(--text-dark);
     }
-    .small {
-      font-size: 0.9rem;
-      color: #6e625b;
-    }
+    .small { font-size: 0.9rem; color: #6e625b; }
+
     h1 {
       font-family: "Libre Baskerville", serif;
-      color: var(--text-dark);
       font-size: 2rem;
       margin: 0.5rem 0;
       border-bottom: 2px solid var(--gold);
@@ -91,17 +87,16 @@
       color: #6e625b;
       margin-bottom: 1.5rem;
     }
+
     .key {
       display: flex;
       justify-content: space-between;
       padding: 0.4rem 0;
       font-weight: 600;
-      color: var(--text-dark);
       border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
     }
     .value {
       font-weight: 400;
-      color: #4a403b;
       text-align: right;
       max-width: 60%;
     }
@@ -118,7 +113,6 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
 
-    /* Golden invite box */
     .right {
       flex: 0.8;
       position: relative;
@@ -131,6 +125,7 @@
       padding: 1.5rem;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+      min-width: 260px;
     }
     .right strong {
       font-size: 1.3rem;
@@ -145,7 +140,6 @@
       color: #fffbe8;
     }
 
-    /* Diagonal Shine */
     .shine-overlay {
       position: absolute;
       top: -50%;
@@ -166,8 +160,15 @@
     }
 
     @media (max-width: 768px) {
-      .card { flex-direction: column; }
-      .right { margin-top: 1rem; width: 100%; }
+      .card {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+      .right {
+        margin-top: 1rem;
+        width: 100%;
+        padding: 2rem;
+      }
     }
   </style>
 </head>
@@ -188,70 +189,30 @@
             </div>
             <h1>Welcome — You're Invited</h1>
             <p className="subtitle">
-              Join us for a joyous celebration of our new home. Your presence
-              will make our day even more special.
+              Join us for a joyous celebration of our new home. Your presence will make our day even more special.
             </p>
             <div className="details">
-              <div className="key">
-                <span>Date</span>
-                <span className="value">5.9.2025</span>
-              </div>
-              <div className="key">
-                <span>Day</span>
-                <span className="value">Friday (வெள்ளிக்கிழமை)</span>
-              </div>
-              <div className="key">
-                <span>Time</span>
-                <span className="value">6:00 PM</span>
-              </div>
-              <div className="key">
-                <span>Venue</span>
-                <span className="value">
-                  RV Palace — No. 19, Thiruvalluvar Cross, 3rd Street, Ponmeni,
-                  Madurai
-                </span>
-              </div>
+              <div className="key"><span>Date</span><span className="value">5.9.2025</span></div>
+              <div className="key"><span>Day</span><span className="value">Friday (வெள்ளிக்கிழமை)</span></div>
+              <div className="key"><span>Time</span><span className="value">6:00 PM</span></div>
+              <div className="key"><span>Venue</span><span className="value">RV Palace — No. 19, Thiruvalluvar Cross, 3rd Street, Ponmeni, Madurai</span></div>
             </div>
             <div className="contacts">
               <div className="small">Hosted by:</div>
-              <div className="key">
-                <span>R. Ramkumar</span>
-                <span className="value">Hi-Tech Arai Pvt.Ltd</span>
-              </div>
-              <div className="key">
-                <span>R. Vijayalakshmi</span>
-                <span className="value">M.Com.</span>
-              </div>
-              <div className="key">
-                <span>R. Ramvikas</span>
-                <span className="value">B.E CSE</span>
-              </div>
-              <div className="key">
-                <span>R. Rithvika</span>
-                <span className="value">VI</span>
-              </div>
-              <div className="key">
-                <span>Contact 1</span>
-                <span className="value">9952726181</span>
-              </div>
-              <div className="key">
-                <span>Contact 2</span>
-                <span className="value">7200734891</span>
-              </div>
+              <div className="key"><span>R. Ramkumar</span><span className="value">Hi-Tech Arai Pvt.Ltd</span></div>
+              <div className="key"><span>R. Vijayalakshmi</span><span className="value">M.Com.</span></div>
+              <div className="key"><span>R. Ramvikas</span><span className="value">B.E CSE</span></div>
+              <div className="key"><span>R. Rithvika</span><span className="value">VI</span></div>
+              <div className="key"><span>Contact 1</span><span className="value">9952726181</span></div>
+              <div className="key"><span>Contact 2</span><span className="value">7200734891</span></div>
             </div>
-            <a
-              className="btn"
-              href="https://maps.app.goo.gl/sAqniNhvYbWR4wrN9?g_st=aw"
-            >
-              📍 View Location
-            </a>
+            <a className="btn" href="https://maps.app.goo.gl/sAqniNhvYbWR4wrN9?g_st=aw">📍 View Location</a>
           </div>
           <div className="right">
             <div className="shine-overlay"></div>
             <strong>You are cordially invited</strong>
             <p className="quote">
-              "A house is made of bricks and beams.<br />A home is made of
-              hopes and dreams."
+              "A house is made of bricks and beams.<br />A home is made of hopes and dreams."
             </p>
           </div>
         </div>
