@@ -133,8 +133,7 @@
         border-radius: 16px;
         padding: 1rem;
         overflow: hidden;
-        background: url("buddha.png") center/cover no-repeat,
-          linear-gradient(145deg, #d4af37cc, #b8901fcc);
+        background: linear-gradient(145deg, #d4af37, #b8901f);
         min-height: 250px;
       }
       .right strong {
@@ -176,12 +175,15 @@
         }
       }
 
+      /* Mobile only image background */
       @media (max-width: 768px) {
         .card {
           flex-direction: column;
         }
         .right {
           width: 100%;
+          background: url("buddha.png") center/cover no-repeat,
+            linear-gradient(145deg, #d4af37cc, #b8901fcc);
         }
       }
     </style>
