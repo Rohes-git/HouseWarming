@@ -1,133 +1,273 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>House Warming - RV Palace</title>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
   <style>
-    :root{
-      --bg:#f6f5f3;
-      --card:#fffdf9;
-      --accent:#8b2b2b;
-      --muted:#7a6f6f;
-      --gold:rgba(198,145,48,0.95);
-      --glass: rgba(255,255,255,0.6);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;min-height:100vh;display:grid;place-items:center;padding:2rem;
-      font-family:Inter,system-ui,Arial; background: linear-gradient(180deg,var(--bg),#efeae6 60%);
+    :root {
+      --bg1: #f9f6f1;
+      --bg2: #f0e2cf;
+      --gold: #d4af37;
+      --accent: #5a2d0c;
+      --glass: rgba(255, 255, 255, 0.75);
+      --shadow: rgba(0, 0, 0, 0.15);
     }
 
-    .wrap{width:100%;max-width:900px}
-
-    /* Invitation card */
-    .card{
-      display:flex;gap:2rem;background:var(--card);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(18,18,18,0.12);
-      border:1px solid rgba(0,0,0,0.04);align-items:stretch
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
     }
 
-    .left{flex:1;padding:18px 18px 18px 28px;border-right:1px dashed rgba(0,0,0,0.05)}
-    .right{width:320px;padding:18px 24px;background:linear-gradient(180deg,var(--glass),transparent);border-radius:12px}
-
-    h1{font-family:'Libre Baskerville', serif;margin:0 0 6px;color:var(--accent);font-size:30px;letter-spacing:0.6px}
-    .subtitle{color:var(--muted);margin:0 0 18px;font-size:14px}
-
-    .key{display:flex;justify-content:space-between;font-weight:600;margin:8px 0;color:#3c2d2d}
-    .value{color:#463f3f;font-weight:400}
-
-    .logo{display:flex;align-items:center;gap:12px;margin:14px 0 18px}
-    .logo .keyshape{width:56px;height:56px;border-radius:56px;background:var(--accent);display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px}
-    .logo .brand{font-weight:700;color:var(--accent)}
-
-    .details{margin-top:6px}
-
-    .qrbox{display:grid;place-items:center}
-    .qr{width:220px;height:220px;border-radius:12px;border:6px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
-
-    .small{font-size:13px;color:var(--muted)}
-
-    /* footer row with contacts */
-    .contacts{margin-top:18px;display:flex;flex-direction:column;gap:8px}
-
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
-
-    /* printable layout */
-    @media print{
-      body{background:white}
-      .card{box-shadow:none;border:1px solid #eee}
+    body {
+      font-family: Inter, system-ui, Arial;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      animation: bgfade 10s ease-in-out infinite alternate;
     }
 
-    /* responsive */
-    @media (max-width:720px){
-      .card{flex-direction:column}
-      .right{width:100%;order:2}
-      .left{order:1;border-right:none;border-bottom:1px dashed rgba(0,0,0,0.05)}
-      .qr{width:190px;height:190px}
+    @keyframes bgfade {
+      0% {
+        background: linear-gradient(135deg, #f9f6f1, #f0e2cf);
+      }
+
+      100% {
+        background: linear-gradient(135deg, #fff8e1, #f2e6d2);
+      }
+    }
+
+    .card {
+      display: flex;
+      gap: 2rem;
+      background: var(--glass);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 40px var(--shadow);
+      max-width: 900px;
+      width: 100%;
+      animation: fadeIn 1.2s ease forwards;
+      border: 3px solid var(--gold);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .keyshape {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--accent);
+      box-shadow: 0 4px 8px var(--shadow);
+    }
+
+    .brand {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .small {
+      font-size: 0.9rem;
+      color: #5f5b57;
+    }
+
+    h1 {
+      font-family: 'Libre Baskerville', serif;
+      color: var(--accent);
+      font-size: 2rem;
+      margin: 0.5rem 0;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 0.3rem;
+    }
+
+    .subtitle {
+      color: #6e625b;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .details {
+      margin-bottom: 1.5rem;
+    }
+
+    .key {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    }
+
+    .value {
+      font-weight: 400;
+      color: #4a403b;
+      text-align: right;
+      max-width: 60%;
+    }
+
+    .contacts {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      background: var(--gold);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      margin-top: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px var(--shadow);
+    }
+
+    /* Premium glowing right section */
+    .right {
+      flex: 0.8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(145deg, #d4af37, #b8901f);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 2px solid #fff3c4;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.6);
+      animation: goldGlow 3s ease-in-out infinite alternate;
+    }
+
+    .right strong {
+      font-size: 1.3rem;
+      color: #fff9e6;
+      font-family: 'Libre Baskerville', serif;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .quote {
+      font-style: italic;
+      text-align: center;
+      font-size: 1rem;
+      color: #fffbe8;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes goldGlow {
+      0% {
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.4);
+      }
+
+      100% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 215, 0, 0.7);
+      }
+    }
+
+    @media (max-width:768px) {
+      .card {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+
+      .right {
+        margin-top: 1rem;
+        width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="left">
-        <div class="logo">
-          <div class="keyshape">RV</div>
-          <div>
-            <div class="brand">RV Palace</div>
-            <div class="small">House-warming Ceremony</div>
-          </div>
+  <div class="card">
+    <div class="left">
+      <div class="logo">
+        <div class="keyshape">RV</div>
+        <div>
+          <div class="brand">RV Palace</div>
+          <div class="small">House-warming Ceremony</div>
         </div>
-
-        <h1>Welcome — You're Invited</h1>
-        <p class="subtitle">Join us for a joyous house-warming celebration. We would be honoured by your presence.</p>
-
-        <div class="details">
-          <div class="key"><span>Date</span><span class="value">5.9.2025</span></div>
-          <div class="key"><span>Day</span><span class="value">Friday (வெள்ளிக்கிழமை)</span></div>
-          <div class="key"><span>Time</span><span class="value">6:00 PM</span></div>
-          <div class="key"><span>Venue</span><span class="value">RV Palace — No. 19, Thiruvalluvar Cross, 3rd Street, Ponmeni, Madurai</span></div>
-        </div>
-
-        <div class="contacts">
-          <div class="small">Hosted by:</div>
-          <div class="key"><span>R. Ramkumar, Assistant Manager</span><span class="value">Hi-Tech Arai Pvt.Ltd</span></div>
-          <div class="key"><span>R. Vijayalakshmi, M.Com.</span><span class="value">—</span></div>
-          <div class="key"><span>R. Ramvikas, BE</span><span class="value">R. Rithvika (VI)</span></div>
-          <div class="key"><span>Contact</span><span class="value">9952726181</span></div>
-        </div>
-
       </div>
 
-      <aside class="right">
-        <div style="text-align:center;margin-bottom:12px">
-          <strong style="color:var(--accent);font-size:18px">You are cordially invited</strong>
-          <div class="small">Scan the QR for location</div>
-        </div>
+      <h1>Welcome — You're Invited</h1>
+      <p class="subtitle">Join us for a joyous celebration of our new home. Your presence will make our day even more
+        special.</p>
 
-        <!-- QR: this uses Google Chart API to generate a QR for the Google Maps link.
-             Replace the URL in `src` with your own QR image if you want. -->
-        <div class="qrbox">
-          <img class="qr" id="qrimg"
-            src="qr.jpg"
-            alt="QR code linking to location">
-        </div>
+      <div class="details">
+        <div class="key"><span>Date</span><span class="value">5.9.2025</span></div>
+        <div class="key"><span>Day</span><span class="value">Friday (வெள்ளிக்கிழமை)</span></div>
+        <div class="key"><span>Time</span><span class="value">6:00 PM</span></div>
+        <div class="key"><span>Venue</span><span class="value">RV Palace — No. 19, Thiruvalluvar Cross, 3rd Street,
+            Ponmeni, Madurai</span></div>
+      </div>
 
-        <div style="margin-top:12px;text-align:center">
-          <a class="btn" href="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DNo.%2019%20Thiruvalluvar%20Cross%203rd%20Street%20Ponmeni%20Madurai%20India%20925001&choe=UTF-8" download="RVpalace-location-qr.png">Download QR</a>
-        </div>
+      <div class="contacts">
+        <div class="small">Hosted by:</div>
+        <div class="key"><span>R. Ramkumar</span><span class="value">Hi-Tech Arai Pvt.Ltd</span></div>
+        <div class="key"><span>R. Vijayalakshmi</span><span class="value">M.Com.</span></div>
+        <div class="key"><span>R. Ramvikas</span><span class="value">B.E CSE</span></div>
+        <div class="key"><span>R. Rithvika</span><span class="value">VI</span></div>
 
-        <p class="small" style="margin-top:14px;line-height:1.4">Tip: Open this page on your phone and let guests scan the QR to open the location in Google Maps. You can also replace the QR with a vCard or an RSVP link.</p>
-      </aside>
+        <div class="key"><span>Contact</span><span class="value">9952726181</span></div>
+      </div>
+
+      <a class="btn"
+        href="https://maps.google.com/?q=No.+19+Thiruvalluvar+Cross+3rd+Street+Ponmeni+Madurai+India+925001">📍 View
+        Location</a>
+    </div>
+
+    <div class="right">
+      <strong>You are cordially invited</strong>
+      <p class="quote">"A house is made of bricks and beams.<br>
+        A home is made of hopes and dreams."</p>
     </div>
   </div>
-
-  <!-- small client-side template: edit content quickly -->
-  <script>
-    // Example: let user update the phone by prompt (you can remove)
-    // const phone = prompt('Enter contact number (or leave)');
-    // if(phone) document.querySelectorAll('.contacts .key .value')[3].textContent = phone;
-  </script>
 </body>
+
 </html>
