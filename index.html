@@ -1,273 +1,272 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>House Warming - RV Palace</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --bg1: #f9f6f1;
-      --bg2: #f0e2cf;
-      --gold: #d4af37;
-      --accent: #5a2d0c;
-      --glass: rgba(255, 255, 255, 0.75);
-      --shadow: rgba(0, 0, 0, 0.15);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    body {
-      font-family: Inter, system-ui, Arial;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      animation: bgfade 10s ease-in-out infinite alternate;
-    }
-
-    @keyframes bgfade {
-      0% {
-        background: linear-gradient(135deg, #f9f6f1, #f0e2cf);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Warming Invitation</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gold: #d4af37;
+        --accent: #5a2d0c;
+      }
+      /* Rich animated marble-like background */
+      body {
+        background: linear-gradient(135deg, #fdf8ef, #f7e9d3);
+        background-size: 300% 300%;
+        animation: bgShimmer 12s ease-in-out infinite;
+        font-family: Inter, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 2rem;
+        min-height: 100vh;
+      }
+      @keyframes bgShimmer {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
 
-      100% {
-        background: linear-gradient(135deg, #fff8e1, #f2e6d2);
-      }
-    }
-
-    .card {
-      display: flex;
-      gap: 2rem;
-      background: var(--glass);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 20px 40px var(--shadow);
-      max-width: 900px;
-      width: 100%;
-      animation: fadeIn 1.2s ease forwards;
-      border: 3px solid var(--gold);
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .keyshape {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: var(--gold);
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 24px;
-      color: var(--accent);
-      box-shadow: 0 4px 8px var(--shadow);
-    }
-
-    .brand {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .small {
-      font-size: 0.9rem;
-      color: #5f5b57;
-    }
-
-    h1 {
-      font-family: 'Libre Baskerville', serif;
-      color: var(--accent);
-      font-size: 2rem;
-      margin: 0.5rem 0;
-      border-bottom: 2px solid var(--gold);
-      padding-bottom: 0.3rem;
-    }
-
-    .subtitle {
-      color: #6e625b;
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .details {
-      margin-bottom: 1.5rem;
-    }
-
-    .key {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.4rem 0;
-      font-weight: 600;
-      color: var(--accent);
-      border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
-    }
-
-    .value {
-      font-weight: 400;
-      color: #4a403b;
-      text-align: right;
-      max-width: 60%;
-    }
-
-    .contacts {
-      margin-top: auto;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      background: var(--gold);
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-      border-radius: 8px;
-      margin-top: 1.2rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px var(--shadow);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px var(--shadow);
-    }
-
-    /* Premium glowing right section */
-    .right {
-      flex: 0.8;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(145deg, #d4af37, #b8901f);
-      border-radius: 16px;
-      padding: 1.5rem;
-      border: 2px solid #fff3c4;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.6);
-      animation: goldGlow 3s ease-in-out infinite alternate;
-    }
-
-    .right strong {
-      font-size: 1.3rem;
-      color: #fff9e6;
-      font-family: 'Libre Baskerville', serif;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
-
-    .quote {
-      font-style: italic;
-      text-align: center;
-      font-size: 1rem;
-      color: #fffbe8;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    @keyframes goldGlow {
-      0% {
-        box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.4);
-      }
-
-      100% {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 215, 0, 0.7);
-      }
-    }
-
-    @media (max-width:768px) {
       .card {
-        flex-direction: column;
-        padding: 1.5rem;
-      }
-
-      .right {
-        margin-top: 1rem;
+        display: flex;
+        gap: 2rem;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 2rem;
+        border: 3px solid var(--gold);
+        max-width: 900px;
         width: 100%;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
       }
-    }
-  </style>
-</head>
+      .left {
+        flex: 1;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .keyshape {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: var(--gold);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 24px;
+        color: var(--accent);
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6);
+      }
+      .brand {
+        font-family: "Libre Baskerville", serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .small {
+        font-size: 0.9rem;
+        color: #5f5b57;
+      }
+      h1 {
+        font-family: "Libre Baskerville", serif;
+        color: var(--accent);
+        font-size: 2rem;
+        margin: 0.5rem 0;
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 0.3rem;
+      }
+      .subtitle {
+        color: #6e625b;
+        margin-bottom: 1.5rem;
+      }
+      .key {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.4rem 0;
+        font-weight: 600;
+        color: var(--accent);
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+      }
+      .value {
+        font-weight: 400;
+        color: #4a403b;
+        text-align: right;
+        max-width: 60%;
+      }
+      .contacts {
+        margin-top: 1rem;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 18px;
+        background: var(--gold);
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 8px;
+        margin-top: 1.2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+      .right {
+        flex: 0.8;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(145deg, #d4af37, #b8901f);
+        border-radius: 16px;
+        padding: 1.5rem;
+        overflow: hidden;
+      }
+      .right strong {
+        font-size: 1.3rem;
+        color: #fff9e6;
+        font-family: "Libre Baskerville", serif;
+        margin-bottom: 0.5rem;
+      }
+      .quote {
+        font-style: italic;
+        text-align: center;
+        font-size: 1rem;
+        color: #fffbe8;
+      }
 
-<body>
-  <div class="card">
-    <div class="left">
-      <div class="logo">
-        <div class="keyshape">RV</div>
-        <div>
-          <div class="brand">RV Palace</div>
-          <div class="small">House-warming Ceremony</div>
-        </div>
-      </div>
+      /* Diagonal Shine Overlay */
+      .shine-overlay {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          135deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.6) 50%,
+          transparent 100%
+        );
+        animation: shineDiagonal 3s infinite;
+      }
+      @keyframes shineDiagonal {
+        0% {
+          transform: translate(-100%, -100%);
+        }
+        100% {
+          transform: translate(100%, 100%);
+        }
+      }
 
-      <h1>Welcome — You're Invited</h1>
-      <p class="subtitle">Join us for a joyous celebration of our new home. Your presence will make our day even more
-        special.</p>
+      @media (max-width: 768px) {
+        .card {
+          flex-direction: column;
+        }
+        .right {
+          margin-top: 1rem;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
 
-      <div class="details">
-        <div class="key"><span>Date</span><span class="value">5.9.2025</span></div>
-        <div class="key"><span>Day</span><span class="value">Friday (வெள்ளிக்கிழமை)</span></div>
-        <div class="key"><span>Time</span><span class="value">6:00 PM</span></div>
-        <div class="key"><span>Venue</span><span class="value">RV Palace — No. 19, Thiruvalluvar Cross, 3rd Street,
-            Ponmeni, Madurai</span></div>
-      </div>
+    <script type="text/babel">
+      function HouseWarming() {
+        return (
+          <div className="card">
+            <div className="left">
+              <div className="logo">
+                <div className="keyshape">RV</div>
+                <div>
+                  <div className="brand">RV Palace</div>
+                  <div className="small">House-warming Ceremony</div>
+                </div>
+              </div>
+              <h1>Welcome — You're Invited</h1>
+              <p className="subtitle">
+                Join us for a joyous celebration of our new home. Your presence
+                will make our day even more special.
+              </p>
+              <div className="details">
+                <div className="key">
+                  <span>Date</span>
+                  <span className="value">5.9.2025</span>
+                </div>
+                <div className="key">
+                  <span>Day</span>
+                  <span className="value">Friday (வெள்ளிக்கிழமை)</span>
+                </div>
+                <div className="key">
+                  <span>Time</span>
+                  <span className="value">6:00 PM</span>
+                </div>
+                <div className="key">
+                  <span>Venue</span>
+                  <span className="value">
+                    RV Palace — No. 19, Thiruvalluvar Cross, 3rd Street, Ponmeni,
+                    Madurai
+                  </span>
+                </div>
+              </div>
+              <div className="contacts">
+                <div className="small">Hosted by:</div>
+                <div className="key">
+                  <span>R. Ramkumar</span>
+                  <span className="value">Hi-Tech Arai Pvt.Ltd</span>
+                </div>
+                <div className="key">
+                  <span>R. Vijayalakshmi</span>
+                  <span className="value">M.Com.</span>
+                </div>
+                <div className="key">
+                  <span>R. Ramvikas</span>
+                  <span className="value">B.E CSE</span>
+                </div>
+                <div className="key">
+                  <span>R. Rithvika</span>
+                  <span className="value">VI</span>
+                </div>
+                <div className="key">
+                  <span>Contact</span>
+                  <span className="value">9952726181</span>
+                </div>
+              </div>
+              <a
+                className="btn"
+                href="https://maps.google.com/?q=No.+19+Thiruvalluvar+Cross+3rd+Street+Ponmeni+Madurai+India+925001"
+              >
+                📍 View Location
+              </a>
+            </div>
+            <div className="right">
+              <div className="shine-overlay"></div>
+              <strong>You are cordially invited</strong>
+              <p className="quote">
+                "A house is made of bricks and beams.<br />A home is made of
+                hopes and dreams."
+              </p>
+            </div>
+          </div>
+        );
+      }
 
-      <div class="contacts">
-        <div class="small">Hosted by:</div>
-        <div class="key"><span>R. Ramkumar</span><span class="value">Hi-Tech Arai Pvt.Ltd</span></div>
-        <div class="key"><span>R. Vijayalakshmi</span><span class="value">M.Com.</span></div>
-        <div class="key"><span>R. Ramvikas</span><span class="value">B.E CSE</span></div>
-        <div class="key"><span>R. Rithvika</span><span class="value">VI</span></div>
-
-        <div class="key"><span>Contact</span><span class="value">9952726181</span></div>
-      </div>
-
-      <a class="btn"
-        href="https://maps.google.com/?q=No.+19+Thiruvalluvar+Cross+3rd+Street+Ponmeni+Madurai+India+925001">📍 View
-        Location</a>
-    </div>
-
-    <div class="right">
-      <strong>You are cordially invited</strong>
-      <p class="quote">"A house is made of bricks and beams.<br>
-        A home is made of hopes and dreams."</p>
-    </div>
-  </div>
-</body>
-
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<HouseWarming />);
+    </script>
+  </body>
 </html>
