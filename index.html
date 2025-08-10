@@ -16,16 +16,16 @@
         --gold: #d4af37;
         --accent: #5a2d0c;
       }
-      /* Rich animated marble-like background */
+
       body {
         background: linear-gradient(135deg, #fdf8ef, #f7e9d3);
-        background-size: 100% 100%;
         animation: bgShimmer 12s ease-in-out infinite;
         font-family: Inter, sans-serif;
-        display: inline-block;
+        display: flex;
         justify-content: center;
         padding: 2rem;
         min-height: 100vh;
+        margin: 0;
       }
       @keyframes bgShimmer {
         0% {
@@ -50,9 +50,10 @@
         max-width: 900px;
         width: 100%;
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        flex-wrap: wrap;
       }
       .left {
-        flex: 2;
+        flex: 1 1 60%;
       }
       .logo {
         display: flex;
@@ -123,31 +124,34 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
       .right {
-        flex: 0.8;
+        flex: 1 1 40%;
         position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(145deg, #d4af37, #b8901f);
         border-radius: 16px;
         padding: 1rem;
         overflow: hidden;
+        background: url("buddha.png") center/cover no-repeat,
+          linear-gradient(145deg, #d4af37cc, #b8901fcc);
+        min-height: 250px;
       }
       .right strong {
         font-size: 1.3rem;
         color: #fff9e6;
         font-family: "Libre Baskerville", serif;
         margin-bottom: 0.5rem;
+        text-align: center;
+        z-index: 1;
       }
       .quote {
         font-style: italic;
         text-align: center;
         font-size: 1rem;
         color: #fffbe8;
+        z-index: 1;
       }
-
-      /* Diagonal Shine Overlay */
       .shine-overlay {
         position: absolute;
         top: -50%;
@@ -161,6 +165,7 @@
           transparent 100%
         );
         animation: shineDiagonal 3s infinite;
+        z-index: 0;
       }
       @keyframes shineDiagonal {
         0% {
@@ -176,7 +181,6 @@
           flex-direction: column;
         }
         .right {
-          margin-top: 1rem;
           width: 100%;
         }
       }
@@ -246,9 +250,9 @@
                   <span className="value">9952726181</span>
                 </div>
                 <div className="key">
-                    <span>Contact 2</span>
-                    <span className="value">7200734891</span>
-                    </div>
+                  <span>Contact 2</span>
+                  <span className="value">7200734891</span>
+                </div>
               </div>
               <a
                 className="btn"
